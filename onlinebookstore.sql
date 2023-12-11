@@ -1,5 +1,9 @@
+*/Database Creation:*/
+  
 CREATE DATABASE onlinebookstore;
 USE onlinebookstore;
+
+/*Tables Creation:*/
 
 CREATE TABLE books(book_id INT PRIMARY KEY, 
 title VARCHAR(50),
@@ -15,6 +19,8 @@ CREATE TABLE orders(order_id INT PRIMARY KEY,
 book_id INT,
 customer_name VARCHAR(50),
 order_date VARCHAR(20));
+
+/*Data Insertion:*/
 
 INSERT INTO books VALUES(10,'A Life in Movies',100,'500','2020');
 INSERT INTO books VALUES(11,'TWO COUNTRIES',101,'350','2005');
@@ -36,16 +42,23 @@ INSERT INTO orders VALUES(1003,14,'Ananya','04/08/2023');
 INSERT INTO orders VALUES(1004,11,'Avany','02/01/2023');
 INSERT INTO orders VALUES(1005,10,'Devan','02/09/2023');
 
+/*Data Retrieval:*/
 
 SELECT * FROM books;
 SELECT * FROM authors;
 SELECT * FROM orders;
+
+/*Data Relationships:*/
 
 ALTER TABLE books ADD genre VARCHAR(20);
 ALTER TABLE orders ADD quantity INT;
 
 SELECT DISTINCT title FROM books;
 SELECT DISTINCT author_name FROM authors;
+
+
+/* Data Retrieval with Relationships:*/ 
+
 
 SELECT * FROM books INNER JOIN authors
 WHERE books.author_id=authors.author_id;
